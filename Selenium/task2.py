@@ -19,6 +19,7 @@ browser.get(url)
 topics = browser.find_element(by = By.CLASS_NAME, value = "hlink-topics")
 topics.click()
 
+
 xpath = "/html/body/div[3]/div[2]/ul/li[2]/div[2]/p"
 technology = browser.find_element(by=By.XPATH, value=xpath)
 technology.click()
@@ -34,7 +35,6 @@ for page in range(4):
             file1.write(questions[index].text + "\n")
             print(questions[index].text)
         next = browser.find_element(by = By.XPATH,value = "/html/body/div[3]/div[1]/div/div/ul/li[7]/a")
-        print("--")
         next.click()
-    time.sleep(50)
+    time.sleep(5)
 file1.close()
