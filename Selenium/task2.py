@@ -20,21 +20,22 @@ topics = browser.find_element(by = By.CLASS_NAME, value = "hlink-topics")
 topics.click()
 
 
-xpath = "/html/body/div[3]/div[2]/ul/li[2]/div[2]/p"
-technology = browser.find_element(by=By.XPATH, value=xpath)
+xpath_technology = "/html/body/div[3]/div[2]/ul/li[2]/div[2]/p"
+technology = browser.find_element(by=By.XPATH, value=xpath_technology)
 technology.click()
 
-xpath = "/html/body/div[3]/div[2]/aside[2]/ul/li[6]/div[2]/p/a"
-sony = browser.find_element(by=By.XPATH, value=xpath)
+xpath_sony = "/html/body/div[3]/div[2]/aside[2]/ul/li[6]/div[2]/p/a"
+sony = browser.find_element(by=By.XPATH, value=xpath_sony)
 sony.click()
 
 for page in range(4):
     questions = browser.find_elements(by = By.XPATH,value = "//div[@class =\"feed-item-title clearfix\"]/a")
     with open("MyFile.txt","a") as file1:
-        for index in range(len(questions)):
-            file1.write(questions[index].text + "\n")
-            print(questions[index].text)
+        for question in questions:
+            file1.write(question.text + "\n")
+            # print(questions[index].text)
+        if page == 3:
+            break
         next = browser.find_element(by = By.XPATH,value = "/html/body/div[3]/div[1]/div/div/ul/li[7]/a")
         next.click()
-    time.sleep(5)
 file1.close()
